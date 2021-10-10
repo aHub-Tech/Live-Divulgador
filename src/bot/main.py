@@ -11,8 +11,12 @@ load_dotenv()
 
 from db import insert_on_stream, return_streamer_info
 from tt import tweet
-from twitch import (get_OAuth, get_stream_title, get_streamer_name,
-                    is_streamer_live)
+from twitch import (
+    get_OAuth,
+    get_stream_title,
+    get_streamer_name,
+    is_streamer_live,
+)
 from utils import remove_cmds_from_title
 
 # Lista das categorias permitidas
