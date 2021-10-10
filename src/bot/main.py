@@ -99,10 +99,10 @@ def threaded_job(job):
 
 if __name__ == "__main__":
 
-    schedule.every(15).seconds.do(threaded_job, main)
+    schedule.every(60).seconds.do(threaded_job, main)
 
     while True:
         schedule.run_pending()
 
         # Performance measure
-        time.sleep(10)
+        time.sleep(30)
