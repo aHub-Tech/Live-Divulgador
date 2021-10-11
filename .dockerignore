@@ -143,3 +143,10 @@ streamers.csv
 .vscode
 
 .github
+
+# Git
+.git
+.gitgnore
+
+# Docker
+.docker
