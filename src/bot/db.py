@@ -1,4 +1,4 @@
-import os
+from os import getenv
 from urllib.parse import quote_plus
 
 from psycopg2 import OperationalError as PostgreSqlError
@@ -6,12 +6,12 @@ from sqlalchemy import MetaData, create_engine
 from sqlalchemy.exc import OperationalError as SqlAlchemyError
 
 # Credenciais da Base de Dados
-user_db = os.getenv('user_db')
-passwd_db = os.getenv('passwd_db')
+user_db = getenv('user_db')
+passwd_db = getenv('passwd_db')
 
 # Variaveis opcionais
-host_db = "db"
-port_db = "5432"
+host_db = getenv('host_db')
+port_db = getenv('port_db')
 
 try:
     # Caso a password tenha caracteres especiais
@@ -79,8 +79,6 @@ def insert_streamers(streamers):
 
         engine.execute(ins)
 
-    return
-
 
 def insert_on_stream(idt, value):
     """
@@ -94,8 +92,6 @@ def insert_on_stream(idt, value):
     )
     engine.execute(upd)
 
-    return
-
 def update_name(idt, name, twitch):
     """
     Função que atualizar o nome e o link com base no id
@@ -108,8 +104,6 @@ def update_name(idt, name, twitch):
     )
     engine.execute(upd)
 
-    return
-
 def delete_streamer(idt):
     """
     Função que elimina streamer da DB com base no id
@@ -117,8 +111,6 @@ def delete_streamer(idt):
 
     delete = livecoders.delete().where(livecoders.c.id == int(idt))
     engine.execute(delete)
-
-    return
 
 def set_timedout(idt, bool):
     """
@@ -131,5 +123,3 @@ def set_timedout(idt, bool):
         .where(livecoders.c.id == int(idt))
     )
     engine.execute(upd)
-
-    return
