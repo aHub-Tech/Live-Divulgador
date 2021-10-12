@@ -46,7 +46,6 @@ def return_streamer_info():
 
     return result
 
-
 def return_streamer_names():
     """
     Retorna o nome dos streamers
@@ -55,7 +54,6 @@ def return_streamer_names():
     result = engine.execute("SELECT Nome FROM livecoders")
 
     return result
-
 
 def insert_streamers(streamers):
     """
@@ -78,7 +76,6 @@ def insert_streamers(streamers):
         )
 
         engine.execute(ins)
-
 
 def insert_on_stream(idt, value):
     """
