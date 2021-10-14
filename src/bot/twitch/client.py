@@ -54,7 +54,7 @@ class TwitchClient:
         """
         Obter o id de um streamer dado seu nome
         """
-        url = "https://api.twitch.tv/helix/users"
+        url = f"{self.base_url}helix/users"
 
         params = {"login": streamer_name}
 
