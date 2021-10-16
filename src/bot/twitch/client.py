@@ -40,7 +40,7 @@ class TwitchClient:
 
         url = f"{self.base_url}helix/streams"
 
-        res  = get(url, headers=self.auth_header)
+        res = get(url, headers=self.auth_header)
 
         res_json = handle_response(res)
 
