@@ -3,7 +3,6 @@ from pytest import fixture
 from dotenv import load_dotenv
 from os import getenv
 from pytest_schema import schema
-from random import randint
 
 load_dotenv()
 
