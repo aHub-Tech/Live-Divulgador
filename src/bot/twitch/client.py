@@ -35,7 +35,7 @@ class TwitchClient:
 
     def get_streams(self):
         """
-        Obter informações sobre todos os streams
+        Obter informações sobre todas as streams
         """
 
         url = f"{self.base_url}helix/streams"
