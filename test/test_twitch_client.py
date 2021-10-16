@@ -7,25 +7,25 @@ from random import randint
 
 load_dotenv()
 
-TWITCH_CLIENT_ID=getenv("CLIENT_ID")
-TWITCH_CLIENT_SECRET=getenv("CLIENT_SECRET")
+TWITCH_CLIENT_ID = getenv("CLIENT_ID")
+TWITCH_CLIENT_SECRET = getenv("CLIENT_SECRET")
 
 STREAMER_SCHEMA = {
-        'id': str,
-        'user_id': str,
-        'user_login': str,
-        'user_name': str,
-        'game_id': str,
-        'game_name': str,
-        'type': str,
-        'title': str,
-        'viewer_count': int,
-        'started_at': str,
-        'language': str,
-        'thumbnail_url': str,
-        'tag_ids': list[str],
-        'is_mature': bool
-    }
+    "id": str,
+    "user_id": str,
+    "user_login": str,
+    "user_name": str,
+    "game_id": str,
+    "game_name": str,
+    "type": str,
+    "title": str,
+    "viewer_count": int,
+    "started_at": str,
+    "language": str,
+    "thumbnail_url": str,
+    "tag_ids": list[str],
+    "is_mature": bool,
+}
 
 
 @fixture
@@ -33,9 +33,11 @@ def twitch_client():
     client = TwitchClient(TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET)
     return client
 
+
 def test_get_oauth():
     oauth = TwitchClient.get_oauth(TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET)
     assert isinstance(oauth, str)
+
 
 def test_get_streamer_id(twitch_client):
     streamer_id = twitch_client.get_streamer_id("dornellestv")
@@ -43,7 +45,9 @@ def test_get_streamer_id(twitch_client):
 
 
 def test_get_streams(twitch_client):
-    response = twitch_client.get_streams()[0] # session.query(Streamer).select(Streamer.twitch_id).all()
+    response = twitch_client.get_streams()[
+        0
+    ]  # session.query(Streamer).select(Streamer.twitch_id).all()
 
     assert response == schema(STREAMER_SCHEMA)
 
