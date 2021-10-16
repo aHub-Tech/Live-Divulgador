@@ -5,14 +5,12 @@ from tweepy import API, OAuthHandler
 
 logger = logging.getLogger(__name__)
 
-
 @dataclass
 class IClientKeys:
     consumer_key: str
     consumer_secret: str
     access_token: str
     access_token_secret: str
-
 
 @dataclass
 class ITweetMetadata:
