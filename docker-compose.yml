@@ -12,7 +12,9 @@ services:
     restart: always
 
   db:
-    image: mariadb:latest
+    build:
+      context: ./docker/
+      dockerfile: database.dockerfile
     environment:
       MARIADB_USER: ${DATABASE_USER}
       MARIADB_PASSWORD: ${DATABASE_PASSWORD}
