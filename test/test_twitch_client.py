@@ -51,9 +51,12 @@ def test_get_streams(twitch_client):
     assert response == schema(STREAMER_SCHEMA)
 
 
-def test_get_stream(twitch_client):
-    user_id = twitch_client.get_streams()[0]["user_id"]
-
-    response = twitch_client.get_stream(user_id)
-
-    assert response == schema(STREAMER_SCHEMA)
+def test_get_stream_should_return_list_of_streams_if_stream_exists_else_empty_list(
+    twitch_client,
+):
+    user_id = twitch_client.get_random_streams()
+    user_ids = list(map(lambda x: x["user_id"], user_id))
+    response = twitch_client.get_streams(user_ids)
+    if response == []:
+        assert True
+    assert response == schema(list[STREAMER_SCHEMA])
