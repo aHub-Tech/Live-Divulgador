@@ -14,6 +14,9 @@ RUN apt-get update \
     && rm -rf /tmp/* \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apt/archives/* \
-    && pip cache purge
+    && pip cache purge \
+    && rm -rf /root/.cache/*
 
-CMD [ "python3", "./app/src/bot/main.py" ]
+WORKDIR /app
+
+# CMD [ "python3", "./app/src/bot/main.py" ]
