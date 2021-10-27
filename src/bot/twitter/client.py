@@ -13,12 +13,8 @@ class TwitterClient:
 
     @staticmethod
     def fetch_api(client_keys: ClientKeys) -> API:
-        auth = OAuthHandler(
-            client_keys.consumer_key, client_keys.consumer_secret
-        )
-        auth.set_access_token(
-            client_keys.access_token, client_keys.access_token_secret
-        )
+        auth = OAuthHandler(client_keys.consumer_key, client_keys.consumer_secret)
+        auth.set_access_token(client_keys.access_token, client_keys.access_token_secret)
 
         api = API(auth)
 
