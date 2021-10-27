@@ -14,7 +14,9 @@ class StreamersService:
     def get_streamer(twitch_id) -> Streamer:
         with Session() as session:
             response = (
-                session.query(Streamer).filter(Streamer.twitch_id == twitch_id).all()
+                session.query(Streamer)
+                .filter(Streamer.twitch_id == twitch_id)
+                .all()
             )
 
         return response
@@ -41,5 +43,7 @@ class StreamersService:
     @staticmethod
     def delete_streamer(twitch_id) -> None:
         with Session() as session:
-            session.query(Streamer).filter(Streamer.twitch_id == twitch_id).delete()
+            session.query(Streamer).filter(
+                Streamer.twitch_id == twitch_id
+            ).delete()
             session.commit()
