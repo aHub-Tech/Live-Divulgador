@@ -26,6 +26,7 @@ def twitch_live():
 
     return live
 
+
 @fixture
 def twitter_client():
     client_keys = ClientKeys(
@@ -34,11 +35,11 @@ def twitter_client():
     client = TwitterClient(client_keys)
     return client
 
+
 def test_internal_api_works(twitter_client):
     assert isinstance(twitter_client._api.rate_limit_status(), dict)
 
 
-@mark.tweet
 def test_send_tweet(twitter_client, twitch_live):
     user_name = twitch_live["user_name"]
     live_title = twitch_live["title"]
