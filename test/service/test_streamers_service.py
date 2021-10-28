@@ -7,7 +7,7 @@ from src.bot.database.engine import engine
 from pytest import fixture, mark
 
 
-@fixture
+@fixture(scope="module")
 def created_streamer(twitch_id):
     streamer = Streamer(twitch_id=twitch_id, twitter_id=8250, name="Radhy")
     StreamersService.create_streamer(streamer)
