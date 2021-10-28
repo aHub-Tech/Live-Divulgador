@@ -1,5 +1,6 @@
-from src.bot.database.entities.streamer import Streamer
-from src.bot.database.engine import Session
+from bot.database.entities.streamer import Streamer
+from bot.database.engine import Session
+from sqlalchemy.sql import select
 
 
 class StreamersService:
@@ -11,20 +12,16 @@ class StreamersService:
         return query
 
     @staticmethod
-    def get_streamer(twitch_id) -> Streamer:
+    def get_streamer(twitch_id: int) -> Streamer:
         with Session() as session:
             response = (
-                session.query(Streamer)
-                .filter(Streamer.twitch_id == twitch_id)
-                .all()
+                session.query(Streamer).filter(Streamer.twitch_id == twitch_id).all()
             )
 
         return response
 
     @classmethod
     def create_streamer(cls, streamer: Streamer) -> None:
-
-        # TODO: validar se já existe no banco de dados antes da criação
         with Session() as session:
             existing_streamer = cls.get_streamer(streamer.twitch_id)
 
@@ -41,9 +38,25 @@ class StreamersService:
             session.commit()
 
     @staticmethod
-    def delete_streamer(twitch_id) -> None:
+    def delete_streamer(twitch_id: int) -> None:
         with Session() as session:
-            session.query(Streamer).filter(
-                Streamer.twitch_id == twitch_id
-            ).delete()
+            session.query(Streamer).filter(Streamer.twitch_id == twitch_id).delete()
             session.commit()
+
+    @staticmethod
+    def select_all_by_twitch_id() -> list[Streamer]:
+        with Session() as session:
+            statement = select(Streamer.twitch_id)
+            result = session.execute(statement).all()
+
+        return result
+
+    @staticmethod
+    def select_by_twitch_id(twitch_id: int) -> Streamer:
+        with Session() as session:
+            statement = select(Streamer.twitch_id).where(
+                Streamer.twitch_id == twitch_id
+            )
+            result = session.execute(statement).first()
+
+        return result
