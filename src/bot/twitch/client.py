@@ -1,6 +1,6 @@
 from typing import Union
 from httpx import get, post
-from src.bot.twitch.handlers import handle_response
+from bot.twitch.handlers import handle_response
 
 
 class TwitchClient:

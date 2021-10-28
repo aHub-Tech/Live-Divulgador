@@ -1,5 +1,5 @@
 from httpx import Response
-from src.bot.twitch.exceptions import (
+from bot.twitch.exceptions import (
     InvalidCredentialsException,
     InsufficientPermissions,
     ObjectNotFoundException,
