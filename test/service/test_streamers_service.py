@@ -1,9 +1,6 @@
 from src.bot.service.streamers_service import StreamersService
-from src.bot.database.engine import Session
 from src.bot.database.entities.streamer import Streamer
-from src.bot.database.entities.streamer import Base, Streamer
 from src.bot.service.streamers_service import StreamersService
-from src.bot.database.engine import engine
 from pytest import fixture, mark
 
 
