@@ -1,8 +1,10 @@
+from logging import getLogger
+from os import getenv
+
+from dotenv import load_dotenv
+
 from bot.handlers.fetch_streamer_ids import FetchStreamerIds
 from bot.twitch.client import TwitchClient
-from os import getenv
-from logging import getLogger
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -18,8 +20,6 @@ class VerifyOnlineStreamers:
             streamer_ids = FetchStreamerIds.handle()
             logger.info("Verifying online streamers")
             response = cls.twitch_client.get_streams(streamer_ids)
-            # TODO: Continue debugging from here
-            breakpoint()
         except Exception as e:
             logger.error(e)
             raise e
