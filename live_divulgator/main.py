@@ -1,4 +1,4 @@
-from src.bot.live_divulgator import LiveDivulgator
+from src.bot.bots.live_divulgator import LiveDivulgator
 from logging import getLogger
 from src.bot.plugins.twitter import TwitterPlugin
 
