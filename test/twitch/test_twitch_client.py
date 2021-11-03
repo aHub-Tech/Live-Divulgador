@@ -1,4 +1,4 @@
-from src.bot.twitch.client import TwitchClient
+from live_divulgator.twitch.client import TwitchClient
 from pytest import fixture
 from dotenv import load_dotenv
 from os import getenv

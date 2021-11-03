@@ -1,7 +1,7 @@
 from sqlalchemy.sql import select
 
-from src.bot.database.engine import Session
-from src.bot.database.entities.streamer import Streamer
+from live_divulgator.database.engine import Session
+from live_divulgator.database.entities.streamer import Streamer
 
 
 class StreamersService:

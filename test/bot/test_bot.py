@@ -1,6 +1,6 @@
 from pytest import fixture
-from src.bot.bots.live_divulgator import LiveDivulgator
-from src.bot.plugins.twitter import TwitterPlugin
+from live_divulgator.bots.live_divulgator import LiveDivulgator
+from live_divulgator.plugins.twitter import TwitterPlugin
 
 
 @fixture

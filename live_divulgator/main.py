@@ -1,6 +1,6 @@
-from src.bot.bots.live_divulgator import LiveDivulgator
+from live_divulgator.bots.live_divulgator import LiveDivulgator
 from logging import getLogger
-from src.bot.plugins.twitter import TwitterPlugin
+from live_divulgator.plugins.twitter import TwitterPlugin
 
 logger = getLogger(__name__)
 

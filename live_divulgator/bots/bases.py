@@ -1,6 +1,6 @@
 from abc import ABC
 from collections import deque
-from src.bot.plugins.plugin import Plugin
+from live_divulgator.plugins.plugin import Plugin
 
 
 class Bot(ABC):

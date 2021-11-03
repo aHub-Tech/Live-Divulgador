@@ -1,10 +1,12 @@
 from httpx import Response
 
-from src.bot.twitch.exceptions import (InsufficientPermissions,
-                                       InvalidCredentialsException,
-                                       ObjectNotFoundException,
-                                       TwitchException,
-                                       UnexpectedResponseException)
+from live_divulgator.twitch.exceptions import (
+    InsufficientPermissions,
+    InvalidCredentialsException,
+    ObjectNotFoundException,
+    TwitchException,
+    UnexpectedResponseException,
+)
 
 
 def handle_response(response: Response) -> dict:

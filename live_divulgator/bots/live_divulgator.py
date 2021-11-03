@@ -1,4 +1,4 @@
-from src.bot.bots.bases import Bot
+from live_divulgator.bots.bases import Bot
 
 
 class LiveDivulgator(Bot):
