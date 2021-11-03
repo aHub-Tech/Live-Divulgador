@@ -3,8 +3,8 @@ from os import getenv
 
 from dotenv import load_dotenv
 
-from bot.handlers.fetch_streamer_ids import FetchStreamerIds
-from bot.twitch.client import TwitchClient
+from src.bot.handlers.fetch_streamer_ids import FetchStreamerIds
+from src.bot.twitch.client import TwitchClient
 
 load_dotenv()
 

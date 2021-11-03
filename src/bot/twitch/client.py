@@ -2,8 +2,8 @@ from typing import Union
 
 from httpx import get, post
 
-from bot.helpers.slice import slice_queue
-from bot.twitch.handlers import handle_response
+from src.bot.helpers.slice import slice_queue
+from src.bot.twitch.handlers import handle_response
 
 
 class TwitchClient:

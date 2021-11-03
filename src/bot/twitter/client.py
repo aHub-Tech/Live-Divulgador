@@ -1,8 +1,9 @@
 from logging import getLogger
+
 from tweepy import API, OAuthHandler
 
-from bot.twitter.generics import ClientKeys, TweetMetadata
-from bot.twitter.message import Message
+from src.bot.twitter.generics import ClientKeys, TweetMetadata
+from src.bot.twitter.message import Message
 
 logger = getLogger(__name__)
 

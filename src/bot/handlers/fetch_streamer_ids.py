@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from bot.service.streamers_service import StreamersService
+from src.bot.service.streamers_service import StreamersService
 
 logger = getLogger(__name__)
 

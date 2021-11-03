@@ -1,5 +1,6 @@
-from os import getcwd
 from enum import Enum
+from os import getcwd
+
 from yaml import FullLoader, load
 
 with open(getcwd() + "/src/bot/twitter/message.yml", "r") as file:

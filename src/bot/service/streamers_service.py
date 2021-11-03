@@ -1,6 +1,7 @@
-from bot.database.entities.streamer import Streamer
-from bot.database.engine import Session
 from sqlalchemy.sql import select
+
+from src.bot.database.engine import Session
+from src.bot.database.entities.streamer import Streamer
 
 
 class StreamersService:
