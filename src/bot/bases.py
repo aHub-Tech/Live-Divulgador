@@ -1,25 +1,21 @@
-# create a bot that accepts modules as plugins
 from abc import ABC
+from collections import deque
+from src.bot.plugins.plugin import Plugin
 
 
 class Bot(ABC):
-    def __init__(self, config=None):
-        self.config = config
-        self.plugins = []
-        self.load_plugins()
+    def __init__(self) -> None:
+        self.plugins: list[Plugin] = []
 
-    def add_plugin(self, plugin):
+    def add_plugin(self, plugin: Plugin) -> None:
         self.plugins.append(plugin)
 
-    def load_plugins(self):
-        for plugin in self.config.plugins:
-            self.add_plugin(plugin(self.config))
+    def add_plugins(self, plugins: list[Plugin]) -> None:
+        list(map(self.add_plugin, plugins))
 
-    def run(self):
-        for plugin in self.plugins:
-            plugin.run()
+    def load_plugins(self) -> None:
+        runner = lambda plugin: plugin.run()
+        list(map(runner, self.plugins))
 
-
-config = ["messages", "commands"]
-
-bot = Bot(config)
+    def run(self) -> None:
+        self.load_plugins()
