@@ -1,10 +1,5 @@
-from time import sleep
-
-from bot.handlers.post_tweet import PostTweet
+from src.bot.bases import Bot
 
 
-class LiveDivulgator:
-    def run():
-        while True:
-            PostTweet.handle()
-            sleep(60)
+class LiveDivulgator(Bot):
+    name = "live_divulgator"
