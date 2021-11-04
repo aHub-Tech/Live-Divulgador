@@ -1,5 +1,5 @@
 from sqlalchemy.sql import select
-
+from sqlalchemy.exc import SQLAlchemyError
 from live_divulgator.database.engine import Session
 from live_divulgator.database.entities.streamer import Streamer
 
@@ -27,7 +27,7 @@ class StreamersService:
             existing_streamer = cls.get_streamer(streamer.twitch_id)
 
             if existing_streamer != []:
-                raise Exception("Streamer already exists")
+                raise SQLAlchemyError("Streamer already exists")
 
             session.add(streamer)
             session.commit()
