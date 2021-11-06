@@ -45,11 +45,11 @@ main() {
   # install local development build
   echo -e "      ... installing livedivulgator bot component"
   $venv_dir/bin/pip install -e .[dev] >/dev/null 2>&1
-  print_check "agent installation"
+  print_check "bot installation"
 
   # check installation
-  echo -e "      ... checking cli"
-  $venv_dir/bin/divulgator --help
+  echo -e "      ... checking CLI"
+  $venv_dir/bin/divulgator --help >/dev/null 2>&1
   print_check "divulgator development installation"
 }
 
