@@ -1,3 +1,9 @@
 #!/usr/bin/sh
 
-docker build -t vcwild/livedivulgator .
+# Build the container
+
+main() {
+  docker build -t vcwild/livedivulgator .
+}
+
+main
