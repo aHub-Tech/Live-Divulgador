@@ -15,8 +15,6 @@ services:
 
   db:
     container_name: livedivulgator_db
-    ports:
-      - "3306:3306"
     build:
       context: ./docker/
       dockerfile: database.dockerfile
