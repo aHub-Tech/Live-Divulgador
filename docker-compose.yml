@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   app:
-    image: vcwild/livedivulgador
+    image: vcwild/livedivulgador_app
     container_name: livedivulgador_app
     depends_on:
       - db

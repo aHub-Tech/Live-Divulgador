@@ -13,19 +13,18 @@ main() {
   fi
 
   core_container_name="$author_name/$project_name"
-  container_name="$core_container_name:$TAG_RELEASE"
+  container_app_name="${core_container_name}_app:$TAG_RELEASE"
 
-  core_container_db=$core_container_name"_db"
-  container_db="$core_container_db:$TAG_RELEASE"
+  container_db_name="${core_container_name}_db:$TAG_RELEASE"
 
   print_header "Preparing $project_name container builds"
 
   echo -e "       ... building $project_name app component"
-  docker build -t $container_name -f ./docker/app.Dockerfile . > /dev/null 2>&1
+  docker build -t $container_app_name -f ./docker/app.Dockerfile . > /dev/null 2>&1
   print_check "divulgador app container build"
 
   echo -e "       ... building $project_name database component"
-  docker build -t $container_db -f ./docker/database.Dockerfile ./docker > /dev/null 2>&1
+  docker build -t $container_db_name -f ./docker/database.Dockerfile ./docker > /dev/null 2>&1
   print_check "divulgador database container build"
 }
 
