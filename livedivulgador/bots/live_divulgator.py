@@ -1,11 +1,11 @@
 from logging import getLogger
 
-from live_divulgator.bots.bases import Bot
+from livedivulgador.bots.bases import Bot
 
 logger = getLogger(__name__)
 
 
-class LiveDivulgator(Bot):
+class LiveDivulgador(Bot):
     def run(self):
-        logger.info("Running LiveDivulgator routines")
+        logger.info("Running LiveDivulgador routines")
         self.load_plugins()

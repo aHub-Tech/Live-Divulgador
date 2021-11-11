@@ -6,8 +6,8 @@ from time import sleep
 import click
 from timeloop import Timeloop
 
-from live_divulgator.bots.live_divulgator import LiveDivulgator
-from live_divulgator.plugins.twitter import TwitterPlugin
+from livedivulgador.bots.livedivulgador import LiveDivulgador
+from livedivulgador.plugins.twitter import TwitterPlugin
 
 logger = getLogger(__name__)
 
@@ -35,7 +35,7 @@ def main(debug):
 def run():
     execute = True
     tl = Timeloop()
-    divulgator = LiveDivulgator()
+    divulgador = LiveDivulgador()
     divulgator.add_plugin(TwitterPlugin)
 
     @tl.job(interval=timedelta(seconds=30))
