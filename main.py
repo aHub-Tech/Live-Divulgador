@@ -33,8 +33,9 @@ def main(debug):
 
 @main.command("run")
 def run():
-    execute = True
     tl = Timeloop()
+    tl.logger = logger
+    execute = True
     divulgador = LiveDivulgador()
     divulgador.add_plugin(TwitterPlugin)
 
