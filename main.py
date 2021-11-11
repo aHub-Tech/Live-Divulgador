@@ -28,7 +28,7 @@ def main(debug):
     warnings.simplefilter("default")
     captureWarnings(True)
 
-    logger.warning("Starting Live Divulgator bot")
+    logger.warning("Starting Live Divulgador bot")
 
 
 @main.command("run")
@@ -36,11 +36,11 @@ def run():
     execute = True
     tl = Timeloop()
     divulgador = LiveDivulgador()
-    divulgator.add_plugin(TwitterPlugin)
+    divulgador.add_plugin(TwitterPlugin)
 
     @tl.job(interval=timedelta(seconds=30))
     def start_loop():
-        divulgator.run()
+        divulgador.run()
 
     tl.start()
 
@@ -48,7 +48,7 @@ def run():
         try:
             sleep(1)
         except KeyboardInterrupt:
-            logger.warning("Stopping Live Divulgator bot")
+            logger.warning("Stopping Live Divulgador bot")
             tl.stop()
             execute = False
 

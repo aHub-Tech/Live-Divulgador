@@ -1,7 +1,6 @@
 from pytest import fixture, mark
 from dotenv import load_dotenv
 from os import getenv
-from pytest_schema import schema
 from livedivulgador.twitch.client import TwitchClient
 
 from livedivulgador.twitter.client import ClientKeys, TweetMetadata, TwitterClient
