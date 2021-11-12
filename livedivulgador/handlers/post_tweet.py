@@ -130,7 +130,9 @@ class PostTweet:
         logger.debug("No new live streamers to add to cache")
 
     @classmethod
-    def handle_prepare_tweets(cls, live_list: list[dict]) -> None:
+    def handle_prepare_tweets(
+        cls, live_list: list[dict]
+    ) -> tuple[list[dict], list[TweetMetadata]]:
         """Defines streamers to receive new tweets and prepare the tweet list"""
         not_cached_streamers: list[dict] = cls.remove_cached_from_tweet_list(live_list)
 
@@ -142,7 +144,7 @@ class PostTweet:
             filter(None.__ne__, live_tweet_metadata)
         )
 
-        return not_cached_streamers, filtered_live_tweet_metadata
+        return (not_cached_streamers, filtered_live_tweet_metadata)
 
     @classmethod
     def tweet(cls, live_list: list[dict]) -> None:
