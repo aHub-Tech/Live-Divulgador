@@ -13,7 +13,7 @@ Divulgador de Twitch streams de Ciência e Tecnologia, Artes e Artesanato e Cria
 
 ## Divulgação
 
-Se você for um streamer e quiser ser divulgado pelo Live Divulgador, preencha o [nosso formulário](link-form) de cadastro.
+Se você for um streamer e quiser ser divulgado pelo Live Divulgador, preencha o [nosso formulário](https://forms.gle/ANNS2P4mnsgWd8St7) de cadastro.
 
 ## Instalação
 
