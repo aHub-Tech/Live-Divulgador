@@ -4,10 +4,16 @@ from typing import Union
 
 from dotenv import load_dotenv
 
-from livedivulgador.handlers.verify_online_streamers import VerifyOnlineStreamers
+from livedivulgador.handlers.verify_online_streamers import (
+    VerifyOnlineStreamers,
+)
 from livedivulgador.helpers.timeout import TimeoutValue
-from livedivulgador.twitter.client import ClientKeys, TweetMetadata, TwitterClient
 from livedivulgador.twitch.categories import LiveStreamCategories
+from livedivulgador.twitter.client import (
+    ClientKeys,
+    TweetMetadata,
+    TwitterClient,
+)
 
 load_dotenv()
 
@@ -37,7 +43,9 @@ class PostTweet:
         live_stream_categories = LiveStreamCategories()
         live_stream_categories.reflect_enabled_categories(bot_name)
 
-        self.enabled_categories = live_stream_categories.get_enabled_categories()
+        self.enabled_categories = (
+            live_stream_categories.get_enabled_categories()
+        )
         self.twitter_client = TwitterClient(client_keys)
         self.cache: dict = {
             "tweeted": [],
@@ -51,7 +59,9 @@ class PostTweet:
             logger.error(e)
             raise e
 
-    def generate_tweet_metadata(self, data: dict) -> Union[TweetMetadata, None]:
+    def generate_tweet_metadata(
+        self, data: dict
+    ) -> Union[TweetMetadata, None]:
 
         user_name = data["user_name"]
         live_title = data["title"]
@@ -72,7 +82,9 @@ class PostTweet:
 
             return tweet_metadata
 
-        logger.info(f"Skipping {user_name}: the category `{category}` is not enabled")
+        logger.info(
+            f"Skipping {user_name}: the category `{category}` is not enabled"
+        )
 
         return None
 
@@ -103,12 +115,16 @@ class PostTweet:
             lambda user: user if user["user_id"] not in tweeted_ids else None
         )
 
-        online_streamer_to_tweet = list(filter(online_streamer_not_cached, data))
+        online_streamer_to_tweet = list(
+            filter(online_streamer_not_cached, data)
+        )
 
         return online_streamer_to_tweet
 
     def handle_send_tweets(
-        self, not_cached_live_list: list[dict], live_tweet_metadata: list[TweetMetadata]
+        self,
+        not_cached_live_list: list[dict],
+        live_tweet_metadata: list[TweetMetadata],
     ) -> None:
         if not_cached_live_list != []:
             logger.debug(f"Tweeting about streamers")
@@ -131,7 +147,9 @@ class PostTweet:
         self, live_list: list[dict]
     ) -> tuple[list[dict], list[TweetMetadata]]:
         """Defines streamers to receive new tweets and prepare the tweet list"""
-        not_cached_streamers: list[dict] = self.remove_cached_from_tweet_list(live_list)
+        not_cached_streamers: list[dict] = self.remove_cached_from_tweet_list(
+            live_list
+        )
 
         live_tweet_metadata: list[Union[TweetMetadata, None]] = list(
             map(self.generate_tweet_metadata, not_cached_streamers)

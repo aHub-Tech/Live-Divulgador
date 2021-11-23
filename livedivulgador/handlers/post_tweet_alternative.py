@@ -1,8 +1,9 @@
-from livedivulgador.handlers.post_tweet import PostTweet
-from dotenv import load_dotenv
 from os import getenv
-from livedivulgador.twitter.client import ClientKeys
 
+from dotenv import load_dotenv
+
+from livedivulgador.handlers.post_tweet import PostTweet
+from livedivulgador.twitter.client import ClientKeys
 
 load_dotenv()
 
@@ -18,6 +19,8 @@ CLIENT_KEYS_B = ClientKeys(
 
 class PostTweetAlternative(PostTweet):
     def __init__(
-        self, client_keys: ClientKeys = CLIENT_KEYS_B, bot_name: str = "LiveDivulgador2"
+        self,
+        client_keys: ClientKeys = CLIENT_KEYS_B,
+        bot_name: str = "LiveDivulgador2",
     ):
         super().__init__(client_keys=client_keys, bot_name=bot_name)
