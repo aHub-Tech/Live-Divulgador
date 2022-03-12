@@ -143,3 +143,5 @@ dump.sql
 .vscode
 
 .env.*
+
+backups/*
