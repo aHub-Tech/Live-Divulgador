@@ -1,4 +1,5 @@
 from asyncio import subprocess
+
 import warnings
 from datetime import timedelta, datetime
 from logging import DEBUG, INFO, basicConfig, captureWarnings, getLogger
@@ -12,6 +13,7 @@ from livedivulgador.handlers.create_streamer import CreateStreamerFromUsername
 from livedivulgador.plugins.plugin import Plugin
 from livedivulgador.plugins.twitter import TwitterPlugin
 from livedivulgador.service.streamers_service import StreamersService
+
 from dotenv import load_dotenv
 from os import getenv
 

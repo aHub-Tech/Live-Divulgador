@@ -144,4 +144,7 @@ dump.sql
 
 .env.*
 
+# Other stuff
+
+docker-compose.dev.yml
 backups/*
